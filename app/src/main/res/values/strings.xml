@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Group_Project</string>
+    <string name="MCQC"> Multiple Choice Quiz Creator </string>
+    <string name="OCT"> OC Transpo </string>
+    <string name="PIF"> Patient Information Form </string>
+    <string name="MI"> Movie Information </string>
+</resources>
