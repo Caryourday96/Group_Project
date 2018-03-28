@@ -17,7 +17,6 @@ public class Switcher extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_switcher);
-
         Button startQuiz = findViewById(R.id.mcquiz);
         Button MovieInfo = findViewById(R.id.movie);
         Button OCTranspo = findViewById(R.id.octranspo);
