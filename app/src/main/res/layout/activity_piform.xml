@@ -12,4 +12,31 @@
         android:text="Patient Information"
         tools:layout_editor_absoluteX="29dp"
         tools:layout_editor_absoluteY="31dp" />
+
+    <ListView
+        android:layout_width="344dp"
+        android:layout_height="445dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="58dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </ListView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </android.support.constraint.ConstraintLayout>
