@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Switcher">
-
 
     <android.support.v7.widget.GridLayout
         android:layout_width="344dp"
@@ -14,9 +14,7 @@
         app:rowCount="4"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        android:layout_centerInParent="true"
-    >
-
+        android:layout_centerInParent="true">
 
         <Button
             android:id="@+id/octranspo"
@@ -43,4 +41,4 @@
             android:text="@string/PIF" />
     </android.support.v7.widget.GridLayout>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

@@ -12,7 +12,6 @@ public class Switcher extends Activity {
 
     protected static final String ACTIVITY_NAME = "Switcher";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

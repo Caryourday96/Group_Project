@@ -3,7 +3,6 @@
     package="alonquin.cst2335.group_project">
 
     <application
-        
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +19,8 @@
         <activity android:name=".OCTranspo" />
         <activity android:name=".MCQuizCreator" />
         <activity android:name=".MovieInfo" />
-        <activity android:name=".PIForm"></activity>
+        <activity android:name=".PIForm" />
+        <activity android:name=".MoviesMain"></activity>
     </application>
 
 </manifest>

@@ -4,4 +4,12 @@
     <string name="OCT"> OC Transpo </string>
     <string name="PIF"> Patient Information Form </string>
     <string name="MI"> Movie Information </string>
+
+    <string name="textView2">Movie Information</string>
+    <string name="launchMovies">Launch Movies</string>
+
+    <string name="dialog_title">Alert</string>
+    <string name="dialog_message">Movie list is loading...</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
