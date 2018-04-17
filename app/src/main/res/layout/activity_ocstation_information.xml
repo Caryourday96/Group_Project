@@ -34,10 +34,10 @@
         -->
 
     <Button
-        android:id="@+id/refreshButton"
+        android:id="@+id/deleteStationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Refresh"
+        android:text="Delete Station"
         />
 
 

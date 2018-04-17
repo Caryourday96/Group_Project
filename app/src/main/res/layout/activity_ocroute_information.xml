@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OCTranspo" >
+
+
+    <TextView
+        android:id="@+id/routenoDestinationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Route 95 Orleans"
+        />
+
+    <TextView
+        android:id="@+id/directionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Direction: Eastbound"
+        />
+
+    <TextView
+        android:id="@+id/startTimeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start time: 18:45"
+        />
+
+    <TextView
+        android:id="@+id/adjustedTimeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adjusted time: 10"
+        />
+
+    <TextView
+        android:id="@+id/coordinatesView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitude/Longitude: 45.296348/75.737474"
+        />
+
+    <TextView
+        android:id="@+id/speedView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS Speed: 50.0"
+        />
+
+    <Button
+        android:id="@+id/refreshRouteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        />
+
+
+</LinearLayout>
