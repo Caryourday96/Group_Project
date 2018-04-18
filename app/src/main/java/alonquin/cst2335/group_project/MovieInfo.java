@@ -2,16 +2,13 @@ package alonquin.cst2335.group_project;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import static alonquin.cst2335.group_project.Switcher.ACTIVITY_NAME;
 
 public class MovieInfo extends AppCompatActivity {
     //protected static final String ACTIVITY_NAME = "MovieInfo";
@@ -35,7 +32,7 @@ public class MovieInfo extends AppCompatActivity {
 
                 //when button is clicked launch MoviesMain
                 Intent MoviesMain = new Intent(MovieInfo.this, MoviesMain.class);
-                                startActivity(MoviesMain);
+                startActivity(MoviesMain);
             }
         });
 

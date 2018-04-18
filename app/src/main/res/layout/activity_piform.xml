@@ -3,40 +3,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context=".PIForm">
 
-    <TextView
-        android:id="@+id/textView4"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Patient Information"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="31dp" />
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-    <ListView
-        android:layout_width="344dp"
-        android:layout_height="445dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="58dp">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-    </ListView>
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/hintYourName"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+        <EditText
+            android:id="@+id/edtBirthday"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/hintYourBirthday"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="155dp" />
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/edtAddress"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/YourAddress"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <EditText
+            android:id="@+id/edtPhoneNumber"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/hintPhoneNumber"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edtHealthCard"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/HealthCardNumber"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/edtDesc"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="#B0C4DE"
+            android:hint="@string/reasonForVisit"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="338dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/checkBoxDocOffice"
+            android:layout_width="105dp"
+            android:layout_height="45dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/doctorChoice" />
+
+        <RadioButton
+            android:id="@+id/checkBoxOptom"
+            android:layout_width="110dp"
+            android:layout_height="45dp"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/optometrist" />
+
+        <RadioButton
+            android:id="@+id/checkBoxDent"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_columnWeight="3"
+            android:layout_gravity="fill"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/dentist" />
+
+    </RadioGroup>
+
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/testMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="testMenu" />
+
+    <Button
+        android:id="@+id/btnThem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/addPatient" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="10dp" />
 </android.support.constraint.ConstraintLayout>

@@ -12,4 +12,32 @@
     <string name="dialog_message">Movie list is loading...</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+
+    <string name="addPatient">Add Patient</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="deletePatient">Delete</string>
+    <string name="updatePatient">Edit</string>
+
+    <string name="hintYourName">Your Name</string>
+    <string name="hintYourBirthday">Your Birthday</string>
+    <string name="YourAddress">Your Address</string>
+    <string name="hintPhoneNumber">Phone Number</string>
+    <string name="HealthCardNumber">Health Card Number</string>
+    <string name="reasonForVisit">Enter Reason For Your Visit</string>
+    <string name="doctorChoice">Doctor\'s Office</string>
+    <string name="optometrist">Optometrist</string>
+    <string name="dentist">Dentist</string>
+    <string name="braces">Have you ever had braces?</string>
+    <string name="benefits">Do you have medical benefits?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="glasses">What date did you buy your glasses?</string>
+    <string name="store">Which store did you buy your glasses from?</string>
+    <string name="continueForm">Please, finish the form and press "Submit button":</string>
+    <string name="surgeries">Specify any previous surgeries:</string>
+    <string name="allergies">Specify any previous allergies:</string>
+    <string name="hint">You can type here...</string>
+    <string name="title_activity_test_toolbar">TestToolbar</string>
+
 </resources>

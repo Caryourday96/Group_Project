@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="alonquin.cst2335.group_project">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,18 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Switcher">
+
+
+        <activity android:name=".Switcher" />
+
+        <activity android:name=".OCTranspo" />
+        <activity android:name=".MCQuizCreator" />
+        <activity android:name=".MovieInfo" />
+        <activity android:name=".PIForm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OCTranspo" />
-        <activity android:name=".MCQuizCreator" />
-        <activity android:name=".MovieInfo" />
-        <activity android:name=".PIForm" />
-        <activity android:name=".MoviesMain"></activity>
+        <activity android:name=".MoviesMain" />
+        <activity android:name=".Update"></activity>
+
     </application>
 
 </manifest>

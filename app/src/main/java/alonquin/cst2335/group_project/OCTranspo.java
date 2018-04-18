@@ -6,10 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.CoordinatorLayout;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,14 +46,12 @@ public class OCTranspo extends AppCompatActivity {
 
         setContentView(R.layout.activity_octranspo);
 
-        stations = (ListView) findViewById(R.id.stationsView);
-        stationInput = (EditText) findViewById(R.id.stationNoInput);
-        addStation = (Button) findViewById(R.id.addStationNoButton);
+        stations = findViewById(R.id.stationsView);
+        stationInput = findViewById(R.id.stationNoInput);
+        addStation = findViewById(R.id.addStationNoButton);
 
         StationAdapter adapter = new StationAdapter(this);
         stations.setAdapter(adapter);
-
-
 
 
         Log.i(ACTIVITY_NAME, "Attempted query:    SELECT " +
@@ -81,12 +78,7 @@ public class OCTranspo extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-        addStation.setOnClickListener(  (e) -> {
+        addStation.setOnClickListener((e) -> {
             ContentValues newData = new ContentValues();
 
             // TODO: get name from OC network!
@@ -106,7 +98,6 @@ public class OCTranspo extends AppCompatActivity {
             adapter.notifyDataSetChanged();
 
 
-
             // TODO:  real life implementation of that stuff below
             //   *************************************************   //
         /*      FOR FOLLOWING CODE BLOCK:
@@ -119,15 +110,15 @@ public class OCTranspo extends AppCompatActivity {
             dialog.setContentView(R.layout.oc_custom_dialog);
             dialog.setTitle("Add Stop");
 
-            TextView text = (TextView) dialog.findViewById(R.id.textDialog);
+            TextView text = dialog.findViewById(R.id.textDialog);
             text.setText("Stop not found! Probably because I haven't yet implemented code to find stops");
 
-            ImageView image = (ImageView) dialog.findViewById(R.id.image);
+            ImageView image = dialog.findViewById(R.id.image);
             image.setImageResource(R.drawable.ic_launcher_foreground);
 
-            Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+            Button dialogButton = dialog.findViewById(R.id.dialogButtonOK);
 
-            dialogButton.setOnClickListener( (x) -> {
+            dialogButton.setOnClickListener((x) -> {
                 dialog.dismiss();
 
                 Snackbar welcome = Snackbar.make(findViewById(android.R.id.content),
@@ -140,7 +131,7 @@ public class OCTranspo extends AppCompatActivity {
         });
 
 
-        stations.setOnItemClickListener( (parent, view, position, id) -> {
+        stations.setOnItemClickListener((parent, view, position, id) -> {
             String s = stationsList.get(position);
             Log.i(ACTIVITY_NAME, "Message: " + s);
             String stationNumber = "0000";  // TODO   this needs to get the station number that the user just clicked on. you'll need to parse out the number from 's'
@@ -207,16 +198,16 @@ public class OCTranspo extends AppCompatActivity {
 
             View result = inflater.inflate(R.layout.oc_station, null);
 
-            TextView stationText = (TextView)result.findViewById(R.id.station_text);
-            stationText.setText (getItem(position) );
+            TextView stationText = result.findViewById(R.id.station_text);
+            stationText.setText(getItem(position));
 
             return result;
         }
 
         @Override
         public long getItemId(int position) {
-        //    cursor.moveToPosition(position);
-        //   return (long)Integer.parseInt(cursor.getString(1));
+            //    cursor.moveToPosition(position);
+            //   return (long)Integer.parseInt(cursor.getString(1));
             return position;
         }
 

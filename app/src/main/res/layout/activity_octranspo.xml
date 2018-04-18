@@ -3,37 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OCTranspo" >
+    tools:context=".OCTranspo">
 
     <ListView
         android:id="@+id/stationsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_above="@+id/stationNoInput"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 
     <Button
         android:id="@+id/addStationNoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:text="Add Station Number" />
 
     <EditText
         android:id="@+id/stationNoInput"
-        android:layout_toLeftOf="@+id/addStationNoButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/addStationNoButton"
         android:inputType="text" />
-
-
 
 
 </RelativeLayout>

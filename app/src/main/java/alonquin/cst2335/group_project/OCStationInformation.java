@@ -35,17 +35,14 @@ public class OCStationInformation extends Activity {
     String startTime;
     String adjustedTime;
     */
-
-    private Context ctx;
-    private SQLiteDatabase db;
-    private Cursor cursor;
-
     ArrayList<String> routesList = new ArrayList<>();
     ListView routes;
     ProgressBar progressBar;
     TextView stationNameView;
-
     Button refresh;
+    private Context ctx;
+    private SQLiteDatabase db;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +54,10 @@ public class OCStationInformation extends Activity {
         OCDatabaseHelper dbHelper = new OCDatabaseHelper(ctx);
         db = dbHelper.getWritableDatabase();
 
-        routes = (ListView)findViewById(R.id.routesView);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        stationNameView = (TextView)findViewById(R.id.stationName);
-        refresh = (Button)findViewById(R.id.refreshButton);
+        routes = findViewById(R.id.routesView);
+        progressBar = findViewById(R.id.progressBar);
+        stationNameView = findViewById(R.id.stationName);
+        refresh = findViewById(R.id.refreshButton);
 
         RouteAdapter adapter = new RouteAdapter(this);
         routes.setAdapter(adapter);
@@ -90,7 +87,7 @@ public class OCStationInformation extends Activity {
         }
 
 
-        refresh.setOnClickListener( (e) -> {
+        refresh.setOnClickListener((e) -> {
             // TODO : actually refresh tho
             Toast toast = Toast.makeText(ctx, "Refreshing...", Toast.LENGTH_SHORT);
             toast.show();
@@ -129,8 +126,6 @@ public class OCStationInformation extends Activity {
     }
 
 
-
-
     public class RouteAdapter extends ArrayAdapter<String> {
         public RouteAdapter(Context ctx) {
             super(ctx, 0);
@@ -152,9 +147,9 @@ public class OCStationInformation extends Activity {
 
             View result = inflater.inflate(R.layout.oc_route, null);
 
-            TextView routeText = (TextView)result.findViewById(R.id.route_text_routeno);
-                // TODO   routeText should contain all data for route, not just number
-            routeText.setText (getItem(position) );
+            TextView routeText = result.findViewById(R.id.route_text_routeno);
+            // TODO   routeText should contain all data for route, not just number
+            routeText.setText(getItem(position));
 
             return result;
         }

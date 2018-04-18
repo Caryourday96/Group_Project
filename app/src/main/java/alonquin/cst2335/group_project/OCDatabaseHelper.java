@@ -23,7 +23,6 @@ public class OCDatabaseHelper extends SQLiteOpenHelper {
     public static final String ROUTE_NO = "route_number";
 
 
-
     public OCDatabaseHelper(Context ctx) {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
@@ -31,10 +30,10 @@ public class OCDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + STATION_NO + " text, " + STATION_NAME +  " text);");
+                + STATION_NO + " text, " + STATION_NAME + " text);");
 
         db.execSQL("CREATE TABLE " + TABLE_NAME_ROUTES + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                 + ROUTE_NO +  " text);");
+                + ROUTE_NO + " text);");
 
         Log.i("OCDatabaseHelper", "Calling onCreate()");
     }

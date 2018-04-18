@@ -4,21 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".OCTranspo" >
+    tools:context=".OCTranspo">
 
 
     <TextView
         android:id="@+id/stationName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        />
+        android:text="TextView" />
 
     <ListView
         android:id="@+id/routesView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        />
+        android:layout_height="400dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -26,19 +24,17 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/routesView"
-        android:layout_gravity="center_horizontal"
-        />
+        android:layout_gravity="center_horizontal" />
 
-        <!--
-        android:visibility="invisible"
-        -->
+    <!--
+    android:visibility="invisible"
+    -->
 
     <Button
         android:id="@+id/refreshButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Refresh"
-        />
+        android:text="Refresh" />
 
 
 </LinearLayout>
