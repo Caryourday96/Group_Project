@@ -1,7 +1,9 @@
 package alonquin.cst2335.group_project;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TextView;
 

@@ -33,6 +33,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
+
 public class OCTranspo extends AppCompatActivity {
 
     protected static final String ACTIVITY_NAME = "OCTranspoActivity";
@@ -51,6 +56,8 @@ public class OCTranspo extends AppCompatActivity {
     private int currentStationIndex = 0;
 
     StationAdapter adapter;
+
+    boolean menuOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,56 +101,36 @@ public class OCTranspo extends AppCompatActivity {
 
 
         addStation.setOnClickListener((e) -> {
-            ContentValues newData = new ContentValues();
+            String s = stationInput.getText().toString();
+            boolean valid = false;
+            try {
+                int a = Integer.parseInt(s);
+                valid = true;
+            } catch (Exception ex) {
+                valid = false;
+            }
+            if (s.length() == 0)
+                valid = false;
 
+            if (valid) {
+                ContentValues newData = new ContentValues();
 
-            newData.put(OCDatabaseHelper.STATION_NAME, "NAME_NOT_FOUND");
+                newData.put(OCDatabaseHelper.STATION_NAME, "NAME_NOT_FOUND");
+                newData.put(OCDatabaseHelper.STATION_NO, s);
 
-            // TODO: validate station input to ensure integer value
-            newData.put(OCDatabaseHelper.STATION_NO, stationInput.getText().toString());
+                db.insert(OCDatabaseHelper.TABLE_NAME, OCDatabaseHelper.STATION_NAME, newData);
 
-            db.insert(OCDatabaseHelper.TABLE_NAME, OCDatabaseHelper.STATION_NAME, newData);
-
-            String newStation = "Station number ";
-            newStation = newStation.concat(stationInput.getText().toString());
-            stationsList.add(newStation);
-            stationsNumbers.add(stationInput.getText().toString());
-            stationInput.setText("");
-            adapter.notifyDataSetChanged();
-
-
-            // TODO:  real life implementation of that stuff below
-            //   *************************************************   //
-        /*      FOR FOLLOWING CODE BLOCK:
-                Author: mkyong
-                url: https://www.mkyong.com/android/android-custom-dialog-example/
-        */
-
-
-            Dialog dialog = new Dialog(ctx);
-            dialog.setContentView(R.layout.oc_custom_dialog);
-            dialog.setTitle("Add Stop");
-
-            // change this junko around
-
-            TextView text = (TextView) dialog.findViewById(R.id.textDialog);
-            text.setText("Stop not found! Probably because I haven't yet implemented code to find stops");
-
-            ImageView image = (ImageView) dialog.findViewById(R.id.image);
-            image.setImageResource(R.drawable.ic_launcher_foreground);
-
-            Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
-
-            dialogButton.setOnClickListener((x) -> {
-                dialog.dismiss();
-
-                Snackbar welcome = Snackbar.make(findViewById(android.R.id.content),
-                        "I need a better reason to use a snackbar!", Snackbar.LENGTH_SHORT);
-                welcome.show();
-            });
-            dialog.show();
-            //   *************************************************   //
-
+                String newStation = "Station number ";
+                newStation = newStation.concat(s);
+                stationsList.add(newStation);
+                stationsNumbers.add(s);
+                stationInput.setText("");
+                adapter.notifyDataSetChanged();
+            } else {
+                Snackbar badinput = Snackbar.make(findViewById(android.R.id.content), getString(R.string.oc_badinput), Snackbar.LENGTH_SHORT);
+                badinput.show();
+                stationInput.setText("");
+            }
         });
 
 
@@ -176,6 +163,12 @@ public class OCTranspo extends AppCompatActivity {
             stationsList.remove(currentStationIndex);
             stationsNumbers.remove(currentStationIndex);
             adapter.notifyDataSetChanged();
+
+
+            Snackbar welcome = Snackbar.make(findViewById(android.R.id.content),
+                    "Station " + OCStationInformation.getDeletedStationNo() + " has been deleted", Snackbar.LENGTH_SHORT);
+            welcome.show();
+
             OCStationInformation.resetDeleteStation();
         }
 
@@ -207,6 +200,36 @@ public class OCTranspo extends AppCompatActivity {
         db.close();
         super.onDestroy();
     }
+
+
+    // FOLLOWING METHOD ChangeFragment written by 'ProgrammingKnowledge', Mar 5\ 2015.
+    // URL: https://www.youtube.com/watch?v=FF-e6CnBwYY
+    public void ChangeFragment (View view) {
+        Log.i(ACTIVITY_NAME, "Changing fragment..");
+
+        Fragment fragment;
+        if (view == findViewById(R.id.toggleButton)) {
+            Log.i(ACTIVITY_NAME, "Togglebutton was clickerood..");
+            ListView stationsView = (ListView)(findViewById(R.id.stationsView));
+            if (menuOn) {
+                fragment = new OCStationsFragment();
+                stationsView.setVisibility(View.VISIBLE);
+            } else {
+                fragment = new OCInfoFragment();
+                stationsView.setVisibility(View.INVISIBLE);
+            }
+
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.fragmentSpace, fragment);
+            ft.commit();
+
+
+
+            menuOn = !menuOn;
+        }
+    }
+    // *************** //
 
 
     public class StationAdapter extends ArrayAdapter<String> {

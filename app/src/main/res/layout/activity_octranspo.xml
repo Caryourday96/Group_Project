@@ -5,16 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".OCTranspo" >
 
-    <ListView
-        android:id="@+id/stationsView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/stationNoInput"
-        />
 
+    <fragment
+        android:name="alonquin.cst2335.group_project.OCStationsFragment"
+        android:id="@+id/fragmentSpace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <Button
         android:id="@+id/addStationNoButton"
@@ -22,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="Add Station Number" />
+        android:text="@string/oc_addstationbutton" />
 
     <EditText
         android:id="@+id/stationNoInput"
@@ -33,7 +30,12 @@
         android:layout_alignParentBottom="true"
         android:inputType="text" />
 
-
-
+    <Button
+        android:id="@+id/toggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addStationNoButton"
+        android:onClick="ChangeFragment"
+        android:text="Toggle Help Menu" />
 
 </RelativeLayout>

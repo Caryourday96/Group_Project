@@ -49,12 +49,20 @@
         android:text="GPS Speed: 50.0"
         />
 
-    <Button
-        android:id="@+id/refreshRouteButton"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Refresh"
-        />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/refreshRouteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/oc_refreshbutton"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
 
 
 </LinearLayout>

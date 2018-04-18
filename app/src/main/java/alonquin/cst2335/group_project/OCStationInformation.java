@@ -1,6 +1,7 @@
 package alonquin.cst2335.group_project;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 public class OCStationInformation extends Activity {
 
     private static boolean deleteStation = false;
+    private static String lastStation = "";
 
     public static String getRouteSummaryForStop = "https://api.octranspo1.com/v1.2/GetRouteSummaryForStop?appID=223eb5c3&&apiKey=ab27db5b435b8c8819ffb8095328e775&stopNo=";
 
@@ -44,6 +47,7 @@ public class OCStationInformation extends Activity {
     ArrayList<String> routesInfo = new ArrayList<String>();
     ListView routes;
     ProgressBar progressBar;
+    int progress;
     TextView stationNameView;
 
 
@@ -57,15 +61,18 @@ public class OCStationInformation extends Activity {
         return deleteStation;
     }
 
+    public static String getDeletedStationNo() { return lastStation; }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocstation_information);
 
-        routes = (ListView)findViewById(R.id.routesView);
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        stationNameView = (TextView)findViewById(R.id.stationName);
-        delete = (Button)findViewById(R.id.deleteStationButton);
+        routes = (ListView) findViewById(R.id.routesView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progress = 0;
+        stationNameView = (TextView) findViewById(R.id.stationName);
+        delete = (Button) findViewById(R.id.deleteStationButton);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -82,10 +89,10 @@ public class OCStationInformation extends Activity {
         routes.setAdapter(adapter);
 
 
-
-        delete.setOnClickListener( (e) -> {
+        delete.setOnClickListener((e) -> {
             Log.i(ACTIVITY_NAME, "Delete button clicked!");
             deleteStation = true;
+            lastStation = Integer.toString(stationNumber);
             finish();
         });
 
@@ -97,13 +104,11 @@ public class OCStationInformation extends Activity {
             i.putExtra("routeno", allRoutes.get(position).getRouteno());
             i.putExtra("destination", allRoutes.get(position).getDestination());
             i.putExtra("stationNum", allRoutes.get(position).getStationNum());
-        //    i.putExtra("coordinates", allRoutes.get(position).getCoordinates());
-        //    i.putExtra("speed", allRoutes.get(position).getSpeed());
-        //    i.putExtra("startTime", allRoutes.get(position).getStartTime());
-        //    i.putExtra("adjustedTime", allRoutes.get(position).getAdjustedTime());
             i.putExtra("direction", allRoutes.get(position).getDirection());
             startActivity(i);
         });
+
+
     }
 
     @Override
@@ -136,6 +141,40 @@ public class OCStationInformation extends Activity {
         Log.i(ACTIVITY_NAME, "In onDestroy()");
         super.onDestroy();
     }
+
+    private void updateProgressBar(int u, int max) {
+        progress += u;
+        if (progress > max)
+            progress = max;
+        progressBar.setProgress(progress);
+    }
+
+    private void stationNotFoundProcedure() {
+        //   *************************************************   //
+        /*      FOR FOLLOWING CODE BLOCK:
+                Author: mkyong
+                url: https://www.mkyong.com/android/android-custom-dialog-example/
+        */
+        Dialog dialog = new Dialog(ctx);
+        dialog.setContentView(R.layout.oc_custom_dialog);
+        dialog.setTitle("Station not found");
+
+
+        TextView text = (TextView) dialog.findViewById(R.id.textDialog);
+        text.setText(getString(R.string.oc_station_w_number) + " " + stationNumber + " "+ getString(R.string.oc_station_not_found));
+
+        ImageView image = (ImageView) dialog.findViewById(R.id.image);
+        image.setImageResource(R.drawable.ic_launcher_foreground);
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+
+        dialogButton.setOnClickListener((x) -> {
+            dialog.dismiss();
+        });
+        dialog.show();
+        //   *************************************************   //
+    }
+
 
 
 
@@ -170,8 +209,6 @@ public class OCStationInformation extends Activity {
 
         @Override
         public long getItemId(int position) {
-            //    cursor.moveToPosition(position);
-            //   return (long)Integer.parseInt(cursor.getString(1));
             return position;
         }
 
@@ -180,10 +217,6 @@ public class OCStationInformation extends Activity {
 
 
     public class OCQuery extends AsyncTask<String, Integer, String> {
-        // a new async task for each station?
-        // or just one async task for every station?
-        // for now, I'll implement for just one station, and see how it works out logistically
-        // to expand functionality for all stations.
         public String connStationNumber;
 
         public ArrayList<OCRoute> routesList = new ArrayList<OCRoute>();
@@ -208,6 +241,7 @@ public class OCStationInformation extends Activity {
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
                 conn.connect();
+                updateProgressBar(10, 10);
 
                 Log.i(ACTIVITY_NAME, "attempting parse..");
                 parse(conn.getInputStream());
@@ -230,6 +264,7 @@ public class OCStationInformation extends Activity {
 
 
                 int eventType = xpp.getEventType();
+                updateProgressBar(10,20);
 
                 Log.i(ACTIVITY_NAME, "Attempting parse: ");
                 while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -237,18 +272,23 @@ public class OCStationInformation extends Activity {
                         case XmlPullParser.START_TAG:
                             Log.i(ACTIVITY_NAME, "Tag found.");
                             lastTag = xpp.getName();
+                            updateProgressBar(3,80);
                             Log.i(ACTIVITY_NAME, "Tag is " + lastTag);
                             break;
                         case XmlPullParser.TEXT:
                             if (lastTag.equals("StopDescription")) {
                                 Log.i(ACTIVITY_NAME, "Station name found: ");
                                 stationName = xpp.getText();
+                                updateProgressBar(12,80);
                             } else if (lastTag.equals("RouteNo")) {
                                 currentRouteno = xpp.getText();
+                                updateProgressBar(12,80);
                             } else if (lastTag.equals("Direction")) {
                                 currentRouteDirection = xpp.getText();
+                                updateProgressBar(10,80);
                             } else if (lastTag.equals("RouteHeading")) {
                                 currentRouteDestination = xpp.getText();
+                                updateProgressBar(10,80);
                                 routesList.add(new OCRoute(currentRouteno, currentRouteDestination, currentRouteDirection, Integer.toString(stationNumber)));
                             }
                             break;
@@ -261,6 +301,7 @@ public class OCStationInformation extends Activity {
             } finally {
                 in.close();
                 Log.i(ACTIVITY_NAME, "closed input stream");
+                updateProgressBar(100,90);
             }
         }
 
@@ -281,10 +322,13 @@ public class OCStationInformation extends Activity {
                 newRoute = newRoute.concat(r.getDestination());
                 routesInfo.add(newRoute);
                 adapter.notifyDataSetChanged();
-
                 allRoutes.add(r);
+                updateProgressBar(2,100);
             }
-        }
+            updateProgressBar(100,100);
 
+            if (stationName.equals(""))
+                stationNotFoundProcedure();
+        }
     }
 }

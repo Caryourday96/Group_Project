@@ -20,25 +20,32 @@
         android:layout_height="400dp"
         />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/routesView"
-        android:layout_gravity="center_horizontal"
-        />
+
 
         <!--
         android:visibility="invisible"
         -->
-
-    <Button
-        android:id="@+id/deleteStationButton"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete Station"
-        />
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/deleteStationButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/oc_deletestationbutton"
+            android:layout_alignParentBottom="true"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/deleteStationButton"
+            />
+    </RelativeLayout>
+
 
 
 </LinearLayout>

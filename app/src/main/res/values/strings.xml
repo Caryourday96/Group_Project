@@ -4,4 +4,25 @@
     <string name="OCT"> OC Transpo </string>
     <string name="PIF"> Patient Information Form </string>
     <string name="MI"> Movie Information </string>
+
+
+    <!--  OC TRANSPO STRING VARIABLES-->
+    <string name="oc_badinput">Station number must be an integer value</string>
+    <string name="oc_station_w_number">Station with number </string>
+    <string name="oc_station_not_found"> was not found on the OC database. It is recommended to delete this station.</string>
+    <string name="oc_refresh">Refreshing...</string>
+    <string name="oc_route">Route </string>
+    <string name="oc_direction">Direction:</string>
+    <string name="oc_starttime">Start time: </string>
+    <string name="oc_adjustedtime">Adjusted time: </string>
+    <string name="oc_latlong">Latitude/Longitude:</string>
+    <string name="oc_gpsspeed">GPS Speed: </string>
+    <string name="oc_infounavailable">Information unavailable</string>
+    <string name="oc_deletestationbutton">Delete Station</string>
+    <string name="oc_refreshbutton">Refresh</string>
+    <string name="oc_addstationbutton">Add Station Number</string>
+
+    <string name="oc_authorinfo">Author:  Ben Gosse\nVersion num:  1.0</string>
+    <string name="oc_instructions">\nHow to use: The main page shows a list of any stations you have entered, and will be saved. To add a new station, enter the station number in the text field and press the add station button. By selecting any of the stations in the list, you will be brought to a new page. This page will display a list of all bus routes that stop at this station number. Press delete to remove this station from your saved stations. Press any of the routes displayed to see detailed information on the route.</string>
+    <string name="oc_datasummary">\nSummary of data stored: This application stores all of the station numbers entered into a database. These station numbers will be recalled and displayed on the main page every time the app is loaded. Station numberes are deleted from the database when the user deletes a station.</string>
 </resources>

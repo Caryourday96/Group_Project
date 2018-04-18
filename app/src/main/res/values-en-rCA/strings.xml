@@ -1,0 +1,22 @@
+<resources>
+    <!--  OC TRANSPO STRING VARIABLES-->
+    <string name="oc_badinput">Station number has to be a whole number with no letters</string>
+    <string name="oc_station_w_number">Station number </string>
+    <string name="oc_station_not_found"> isn\'t in the OC database. Probably delete this station.</string>
+    <string name="oc_refresh">Reloading...</string>
+    <string name="oc_route">Route </string>
+    <string name="oc_direction">Direction:</string>
+    <string name="oc_starttime">Route start time: </string>
+    <string name="oc_adjustedtime">Delay: </string>
+    <string name="oc_latlong">GPS coordinates:</string>
+    <string name="oc_gpsspeed">GPS Speed: </string>
+    <string name="oc_infounavailable">Info unavailable</string>
+    <string name="oc_deletestationbutton">Remove Station</string>
+    <string name="oc_refreshbutton">Reload</string>
+    <string name="oc_addstationbutton">Add Station Num</string>
+
+    <string name="oc_authorinfo">Author:  Ben Gosse\nVersion no:  1.0</string>
+    <string name="oc_instructions">\nInstructions: The main page shows a list of any stations you have entered, and will be saved. To add a new station, enter the station number in the text field and press the add station button. By selecting any of the stations in the list, you will be brought to a new page. This page will display a list of all bus routes that stop at this station number. Press delete to remove this station from your saved stations. Press any of the routes displayed to see detailed information on the route.</string>
+    <string name="oc_datasummary">\nDatabase info: This application stores all of the station numbers entered into a database. These station numbers will be recalled and displayed on the main page every time the app is loaded. Station numberes are deleted from the database when the user deletes a station.</string>
+</resources>
+

@@ -1,10 +1,14 @@
 package alonquin.cst2335.group_project;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.concurrent.Executor;
 
 public class OCRouteInformation extends Activity {
     public static final String ACTIVITY_NAME = "OCRouteInformation";
@@ -20,44 +24,31 @@ public class OCRouteInformation extends Activity {
     Button refresh;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ocroute_information);
 
-
-        routenoDestination = (TextView)findViewById(R.id.routenoDestinationView);
-        direction = (TextView)findViewById(R.id.directionView);
-        startTime = (TextView)findViewById(R.id.startTimeView);
-        adjustedTime = (TextView)findViewById(R.id.adjustedTimeView);
-        coordinates = (TextView)findViewById(R.id.coordinatesView);
-        speed = (TextView)findViewById(R.id.speedView);
-        refresh = (Button)findViewById(R.id.refreshRouteButton);
-
+        routenoDestination = (TextView) findViewById(R.id.routenoDestinationView);
+        direction = (TextView) findViewById(R.id.directionView);
+        startTime = (TextView) findViewById(R.id.startTimeView);
+        adjustedTime = (TextView) findViewById(R.id.adjustedTimeView);
+        coordinates = (TextView) findViewById(R.id.coordinatesView);
+        speed = (TextView) findViewById(R.id.speedView);
+        refresh = (Button) findViewById(R.id.refreshRouteButton);
 
 
         Bundle extras = getIntent().getExtras();
-    /*
-        route = new OCRoute(
-            extras.getString("stationNum"), extras.getString("routeno"), extras.getString("destination"),
-            extras.getString("coordinates"), extras.getString("speed"), extras.getString("startTime"),
-            extras.getString("adjustedTime"), extras.getString("direction")
-        );
-    */
-        route = new OCRoute (extras.getString("routeno"), extras.getString("destination"),
+
+        route = new OCRoute(extras.getString("routeno"), extras.getString("destination"),
                 extras.getString("direction"), extras.getString("stationNum")
-                );
-        route.updateData();
+        );
 
-    //    while (!route.isReady()) {}
-
-        setDisplay();
+        new Update().executeOnExecutor( ((r) -> {r.run();}),"");
 
 
-
-        refresh.setOnClickListener( (e) -> {
-            Toast toast = Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT);
+        refresh.setOnClickListener((e) -> {
+            Toast toast = Toast.makeText(this, getString(R.string.oc_refresh), Toast.LENGTH_SHORT);
             toast.show();
             route.updateData();
             setDisplay();
@@ -65,11 +56,28 @@ public class OCRouteInformation extends Activity {
     }
 
     private void setDisplay() {
-        routenoDestination.setText("Route " + route.getRouteno() + " " + route.getDestination());
-        direction.setText("Direction: " + route.getDirection());
-        startTime.setText("Start time: " + route.getStartTime());
-        adjustedTime.setText("Adjusted time: " + route.getAdjustedTime());
-        coordinates.setText("Latitude/Longitude: " + route.getCoordinates());
-        speed.setText("GPS Speed: " + route.getSpeed());
+        routenoDestination.setText(getString(R.string.oc_route) + route.getRouteno() + " " + route.getDestination());
+        direction.setText(getString(R.string.oc_direction) + route.getDirection());
+        startTime.setText(getString(R.string.oc_starttime) + route.getStartTime());
+        adjustedTime.setText(getString(R.string.oc_adjustedtime) + route.getAdjustedTime());
+        coordinates.setText(getString(R.string.oc_latlong) + route.getCoordinates());
+        speed.setText(getString(R.string.oc_gpsspeed) + route.getSpeed());
+    }
+
+    public class Update extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            route.updateData();
+            if (route.getStartTime() == null || route.getSpeed() == null || route.getCoordinates() == null || route.getAdjustedTime() == null) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    Log.i(ACTIVITY_NAME, e.toString());
+                }
+                route.updateData();
+            }
+            setDisplay();
+            return null;
+        }
     }
 }
