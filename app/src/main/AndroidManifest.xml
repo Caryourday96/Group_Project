@@ -3,13 +3,12 @@
     package="alonquin.cst2335.group_project">
 
     <application
-        
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Switcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,9 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".OCTranspo" />
-        <activity android:name=".MCQuizCreator" />
         <activity android:name=".MovieInfo" />
-        <activity android:name=".PIForm"></activity>
+        <activity android:name=".PIForm" />
+        <activity android:name=".MCQuizCreator" />
+        <activity android:name=".QuizActivity" />
+        <activity
+            android:name=".DisplayQuiz"
+            android:label="@string/title_activity_display_quiz"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

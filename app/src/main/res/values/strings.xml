@@ -1,7 +1,32 @@
 <resources>
-    <string name="app_name">Group_Project</string>
+    <string name="app_name">Quiz Creator</string>
     <string name="MCQC"> Multiple Choice Quiz Creator </string>
     <string name="OCT"> OC Transpo </string>
     <string name="PIF"> Patient Information Form </string>
     <string name="MI"> Movie Information </string>
+    <string name="mc">MultipleChoice</string>
+    <string name="nu">Numeric</string>
+    <string name="tf">True/False</string>
+    <string name="save">Save</string>
+    <string name="quiz_creator">Question List</string>
+    <string name="create">Add a Question</string>
+    <string name="enterQuestion"> Enter The Question</string>
+    <string name="trueAnswer">True</string>
+    <string name="falseAnswer">False</string>
+    <string name="enterAnswer">Enter The Answer</string>
+    <string name="rememberDecimal">Remember to write the number of decimals in your question</string>
+    <string name="lettera">A</string>
+    <string name="letterb">B</string>
+    <string name="letterc">C</string>
+    <string name="letterd">D</string>
+    <string name="correctAnswerIs">Correct answer is: </string>
+    <string name="becarefulDecimal">Please don\'t forget to round your answer to the correct number of decimal points</string>
+    <string name="continueImport">Do you wish to import quiz from the Internet?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_display_quiz">DisplayQuiz</string>
+    <string name="typeAnswerHere">Type your answer here</string>
+    <string name="checkAnswer">Check</string>
+    <string name="icon">icon</string>
+    <string name="goback">Go Back</string>
 </resources>

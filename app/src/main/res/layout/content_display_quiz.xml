@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/quizDisplay_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="alonquin.cst2335.group_project.DisplayQuiz">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/holo_orange_light"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/quizDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolBar"
+            android:textSize="30sp" />
+
+    <FrameLayout
+        android:id="@+id/quizContainer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_above="@+id/youAnswerHere"
+        android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/youAnswerHere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/checkAnswer"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp"
+            android:text="@string/typeAnswerHere"/>
+
+        <EditText
+            android:id="@+id/enterAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/checkAnswer"
+            android:ems="10"
+            android:hint="Enter your answer here"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/checkAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/checkAnswer" />
+
+
+    </RelativeLayout>

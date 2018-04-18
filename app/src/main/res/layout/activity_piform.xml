@@ -11,5 +11,6 @@
         android:layout_height="wrap_content"
         android:text="Patient Information"
         tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="31dp" />
+        tools:layout_editor_absoluteY="31dp"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

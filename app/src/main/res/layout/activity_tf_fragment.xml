@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="alonquin.cst2335.group_project.tfFragment"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/enterQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enterQuestion"
+        android:inputType="textAutoCorrect" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RGroup">
+
+        <RadioButton
+            android:id="@+id/trueAns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trueAnswer" />
+
+        <RadioButton
+            android:id="@+id/falseAns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/falseAnswer" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content">
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="#FFFFBB33"
+    android:scaleType="center"
+    android:src="@drawable/star" />
+
+<TextView
+    android:id="@+id/continueImport"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/continueImport"
+    android:textSize="20dp"/>
+
+</LinearLayout>

@@ -11,5 +11,6 @@
         android:layout_height="wrap_content"
         android:text="OC Transpo"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

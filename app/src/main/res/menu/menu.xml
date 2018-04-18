@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/import_que"
+        android:icon="@drawable/import_resource"
+        android:orderInCategory="100"
+        android:title="import"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/import_ques"
+        android:icon="@drawable/import_resource"
+        android:orderInCategory="100"
+        android:title="import"
+        app:showAsAction="always" />
+
+
+    <item
+        android:title="stat"
+        android:icon="@drawable/staticquiz"
+        android:orderInCategory="300"
+        android:id="@+id/menu_sta"
+        app:showAsAction="always"   />
+
+
+    <item
+        android:title="stat"
+        android:icon="@drawable/staticquiz"
+        android:orderInCategory="300"
+        android:id="@+id/menu_stat"
+        app:showAsAction="always"   />
+
+
+    <item
+        android:title="help"
+        android:orderInCategory="400"
+        android:id="@+id/menu_help"
+        app:showAsAction="never"   />
+
+</menu>
