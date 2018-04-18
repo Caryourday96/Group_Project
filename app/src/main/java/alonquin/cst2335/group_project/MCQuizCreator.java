@@ -121,8 +121,8 @@ public class MCQuizCreator extends Toolbar {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(MCQuizCreator.this, QuizActivity.class);
-                Intent intent = new Intent(MCQuizCreator.this, DisplayQuiz.class);
+                Intent intent = new Intent(MCQuizCreator.this, QuizActivity.class);
+                //Intent intent = new Intent(MCQuizCreator.this, DisplayQuiz.class);
 
                 if (selectedType.equalsIgnoreCase("mc")) {
                     info = mcF.getData();
