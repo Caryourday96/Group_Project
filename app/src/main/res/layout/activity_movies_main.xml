@@ -16,6 +16,12 @@
             android:layout_height="413dp"
             android:layout_centerVertical="true"></ListView>
 
+        <Button
+            android:id="@+id/movieDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movieDetails"/>
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"

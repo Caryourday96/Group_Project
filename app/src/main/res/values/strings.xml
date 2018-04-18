@@ -7,6 +7,7 @@
 
     <string name="textView2">Movie Information</string>
     <string name="launchMovies">Launch Movies</string>
+    <string name="movieDetails">Launch Movie Details</string>
 
     <string name="dialog_title">Alert</string>
     <string name="dialog_message">Movie list is loading...</string>

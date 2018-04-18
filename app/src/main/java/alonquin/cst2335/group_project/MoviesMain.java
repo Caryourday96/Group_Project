@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,11 +55,23 @@ public class MoviesMain extends Activity {
         //FrameLayout frameLayout;
         //boolean frameLayoutExists = true;
 
+        Button movieDetails = findViewById(R.id.movieDetails);
+        movieDetails.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                //when button is clicked launch MoviesMain
+                Intent MoviesMain = new Intent(MoviesMain.this, MovieDetails.class);
+                startActivity(MoviesMain);
+            }
+        });
+
 //public void showMovies(){
             final MovieDatabaseHelper cdbHelper = new MovieDatabaseHelper(this);
             db = cdbHelper.getWritableDatabase();
             final ContentValues contentValues = new ContentValues();
-
+/*
             cursor = db.query(MovieDatabaseHelper.TABLE_NAME, new String[]{MovieDatabaseHelper.KEY_id, MovieDatabaseHelper.KEY_MESSAGE}, null, null, null, null, null);
 
             cursor.moveToFirst();
@@ -77,7 +90,7 @@ public class MoviesMain extends Activity {
             Log.i(ACTIVITY_NAME, "Cursor's column count = " + cursor.getColumnCount());
             for(int i = 0; i < cursor.getColumnCount(); i++){
                 Log.i(ACTIVITY_NAME, cursor.getColumnName(i));
-            }
+            }*/
       //  }//end showMovies
 
         //set up progress bar
@@ -192,7 +205,7 @@ public class MoviesMain extends Activity {
         } //end ChatAdapter
 /****************************************************/
 
-/*
+
         AlertDialog.Builder builder = new AlertDialog.Builder(MoviesMain.this);
         //chain together setters to set the dialog characteristics
         builder.setMessage(R.string.dialog_message) //in strings.xml
@@ -214,7 +227,7 @@ public class MoviesMain extends Activity {
                     }
                 })
                 .show();
-*/
+
 
 
     } //end onCreate
