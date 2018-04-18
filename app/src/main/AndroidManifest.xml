@@ -20,7 +20,13 @@
         <activity android:name=".MCQuizCreator" />
         <activity android:name=".MovieInfo" />
         <activity android:name=".PIForm" />
-        <activity android:name=".MoviesMain"></activity>
+        <activity android:name=".MoviesMain" />
+        <activity android:name=".MovieDatabaseHelper" />
+        <activity android:name=".MovieAdapter" />
+        <activity android:name=".Movie" />
+        <activity android:name=".MessageDetails" />
+        <activity android:name=".MessageFragment" />
+        <activity android:name=".MovieDetails"></activity>
     </application>
 
 </manifest>

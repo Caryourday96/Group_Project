@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/movieList"
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="413dp"
             android:layout_centerVertical="true"></ListView>

@@ -34,7 +34,7 @@ public class MovieInfo extends AppCompatActivity {
                 toast.show(); //display your message box
 
                 //when button is clicked launch MoviesMain
-                Intent MoviesMain = new Intent(MovieInfo.this, MoviesMain.class);
+                Intent MoviesMain = new Intent(MovieInfo.this, MovieDetails.class);
                                 startActivity(MoviesMain);
             }
         });
