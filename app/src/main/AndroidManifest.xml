@@ -13,18 +13,19 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".Switcher" />
-
-        <activity android:name=".OCTranspo" />
-        <activity android:name=".MCQuizCreator" />
-        <activity android:name=".MovieInfo" />
-        <activity android:name=".PIForm">
+        <activity android:name=".Switcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".OCTranspo" />
+        <activity android:name=".MCQuizCreator" />
+        <activity android:name=".MovieInfo" />
+        <activity android:name=".PIForm" />
+
+
         <activity android:name=".MoviesMain" />
         <activity android:name=".Update"></activity>
 

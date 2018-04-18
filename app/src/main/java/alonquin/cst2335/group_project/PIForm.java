@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -48,7 +49,7 @@ public class PIForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_switcher);
+        setContentView(R.layout.activity_piform);
 
         mydatabase = new Mydatabase(getApplication());
 
@@ -73,25 +74,28 @@ public class PIForm extends AppCompatActivity {
         KLradioBOptom = findViewById(R.id.checkBoxOptom);
 
         radioGroup = findViewById(R.id.radioGroup);
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-            switch (group.getCheckedRadioButtonId()) {
-                case R.id.checkBoxDocOffice:
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                    strDoctorChoice = "Doctor's Office";
-                    break;
+                switch (group.getCheckedRadioButtonId()) {
+                    case R.id.checkBoxDocOffice:
+                        strDoctorChoice = "Doctor's Office";
+                        break;
 
-                case R.id.checkBoxOptom:
-                    strDoctorChoice = "Optometrist";
-                    break;
+                    case R.id.checkBoxOptom:
+                        strDoctorChoice = "Optometrist";
+                        break;
 
-                case R.id.checkBoxDent:
-                    strDoctorChoice = "Dentist";
-                    break;
+                    case R.id.checkBoxDent:
+                        strDoctorChoice = "Dentist";
+                        break;
+                }
             }
         });
 
-        KLradioBdoctorOffice.setOnClickListener(new View.OnClickListener() {
+
+        KLradioBdoctorOffice.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -119,7 +123,7 @@ public class PIForm extends AppCompatActivity {
             }
         });
 
-        KLradioBOptom.setOnClickListener(new View.OnClickListener() {
+        KLradioBOptom.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -148,7 +152,7 @@ public class PIForm extends AppCompatActivity {
             }
         });
 
-        KLradioBDentist.setOnClickListener(new View.OnClickListener() {
+        KLradioBDentist.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -214,7 +218,7 @@ public class PIForm extends AppCompatActivity {
         ListView listView = findViewById(R.id.listview);
         Button btnThem = findViewById(R.id.btnThem);
 
-        btnThem.setOnClickListener(new View.OnClickListener() {
+        btnThem.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 String strName = edtName.getText().toString();
